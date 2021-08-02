@@ -1,16 +1,24 @@
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DiceUnitTests {
 
+    private Dice createDiceObjet() {
+        return new Dice();
+    }
+
     @Test
-    public void checkRollDiceGetsNumberBetween1and6() {
+    public void checkThat_RollDice_GetsNumberBetween1and6() {
 
-        String  expected = "5";
-        String  actual = "4";
+        final Dice dice = createDiceObjet();
+        boolean actual = false;
+        Dice.storeFirstDiceNumber = dice.rollDice();
 
-        assertEquals(expected, actual);
+        if (Dice.storeFirstDiceNumber > 0 && Dice.storeFirstDiceNumber < 7) {
+            actual = true;
+        }
 
+        assertTrue("The dice number should be more than 0 and less then 7 and it was: " + Dice.storeFirstDiceNumber, actual);
     }
 }
