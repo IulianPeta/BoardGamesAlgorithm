@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class DiceUnitTests {
@@ -9,16 +10,29 @@ public class DiceUnitTests {
     }
 
     @Test
-    public void checkThat_RollDice_GetsNumberBetween1and6() {
+    public void checkThat_RollDice_GetsNumberBetween_1_and_6() {
 
         final Dice dice = createDiceObjet();
         boolean actual = false;
-        Dice.storeFirstDiceNumber = dice.rollDice();
+        Dice.firstDiceNumber = dice.rollDice();
 
-        if (Dice.storeFirstDiceNumber > 0 && Dice.storeFirstDiceNumber < 7) {
+        if (Dice.firstDiceNumber > 0 && Dice.firstDiceNumber < 7) {
             actual = true;
         }
 
-        assertTrue("The dice number should be more than 0 and less then 7 and it was: " + Dice.storeFirstDiceNumber, actual);
+        assertTrue("The dice number should be more than 0 and less then 7 and it was: " + Dice.firstDiceNumber, actual);
+    }
+
+    @Test
+    public void checkThat_TheSumForTwoDiceNumbers_Works(){
+        final Dice dice = createDiceObjet();
+
+        Dice.firstDiceNumber = dice.rollDice();
+        Dice.secondDiceNumber = dice.rollDice();
+
+        int actual = dice.sumForBothDices();
+        int expected = Dice.firstDiceNumber + Dice.secondDiceNumber;
+
+        assertEquals(expected, actual);
     }
 }

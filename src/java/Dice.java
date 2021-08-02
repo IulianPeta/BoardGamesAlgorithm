@@ -2,8 +2,8 @@ import java.util.Random;
 
 public class Dice {
 
-    public static int storeFirstDiceNumber;
-    public static int storeSecondDiceNumber;
+    public static int firstDiceNumber;
+    public static int secondDiceNumber;
 
     private Random numbers;
 
@@ -14,7 +14,7 @@ public class Dice {
         return diceNumber ;
     }
 
-    public int sumFotBothDices() {
-        return storeFirstDiceNumber + storeSecondDiceNumber;
+    public int sumForBothDices() {
+        return firstDiceNumber + secondDiceNumber;
     }
 }
