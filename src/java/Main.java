@@ -1,5 +1,7 @@
 import cluedo.Guests;
 
+import java.util.Arrays;
+
 public class Main {
 
     private Dice createDiceObject() {
@@ -22,11 +24,18 @@ public class Main {
         System.out.println("First dice number: "+ Dice.firstDiceNumber);
         System.out.println("Second dice number: " + Dice.secondDiceNumber);
 
+        if (Dice.secondDiceNumber == 1) {
+            System.out.println("Second dice is |?|");
+        }
+
         System.out.println( "The sum for both dices is: " + dice.sumForBothDices());
         System.out.println("----------------------");
 
-        guests.printGuestsList();
-        guests.printMissingGuestsList();
+        guests.generateGuestsList();
+        guests.generateMissingGuestsList();
+        System.out.println(Arrays.deepToString(guests.fillMissingGuestsList()));
+        guests.showPotentialCriminal();
+        System.out.println("----------------------");
     }
 
     public static void main(String[] args) {

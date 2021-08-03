@@ -8,7 +8,7 @@ public class Guests {
     private String[][] missingGuestsList;
     private int missingCharacterListSize = 6;
 
-    private String[] generateGuestsList() {
+    public String[] generateGuestsList() {
         guestsList = new String[6];
 
         guestsList[0] = "Mustard";
@@ -21,7 +21,7 @@ public class Guests {
         return guestsList;
     }
 
-    private String[][] generateMissingGuestsList() {
+    public String[][] generateMissingGuestsList() {
         missingGuestsList = new String[6][2];
 
         for (int i = 0; i < missingCharacterListSize; i++) {
@@ -35,13 +35,22 @@ public class Guests {
         return missingGuestsList;
     }
 
-    public void printGuestsList() {
-        System.out.println("The guests are: ");
-        System.out.println(Arrays.toString(generateGuestsList()));
+    public String[][] fillMissingGuestsList() {
+
+        missingGuestsList[0][1] = "Mine";
+        missingGuestsList[1][1] = "Cristina";
+        missingGuestsList[5][1] = "Octavia";
+
+        return missingGuestsList;
     }
 
-    public void printMissingGuestsList() {
-        System.out.println("The missing guests are: ");
-        System.out.println(Arrays.deepToString(generateMissingGuestsList()));
+    public void showPotentialCriminal() {
+        System.out.println("The potential criminal is: ");
+        for (int i = 0; i < missingCharacterListSize; i++) {
+            if (missingGuestsList[i][1] == "Missing") {
+                System.out.print(" | " + missingGuestsList[i][0] + " | ");
+            }
+        }
+        System.out.println("");
     }
 }
