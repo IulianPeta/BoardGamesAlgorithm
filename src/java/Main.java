@@ -1,4 +1,5 @@
 import cluedo.Guests;
+import cluedo.Weapons;
 
 import java.util.Arrays;
 
@@ -10,6 +11,9 @@ public class Main {
     private Guests createGuestsObject() {
         return new Guests();
     }
+    private Weapons createWeaponsObject() {
+        return new Weapons();
+    }
 
     public Main(){
         System.out.println("Board games");
@@ -17,6 +21,7 @@ public class Main {
 
         Dice dice = createDiceObject();
         Guests guests = createGuestsObject();
+        Weapons weapons = createWeaponsObject();
 
         Dice.firstDiceNumber = dice.rollDice();
         Dice.secondDiceNumber = dice.rollDice();
@@ -35,6 +40,12 @@ public class Main {
         guests.generateMissingGuestsList();
         System.out.println(Arrays.deepToString(guests.fillMissingGuestsList()));
         guests.showPotentialCriminal();
+        System.out.println("----------------------");
+
+        weapons.generateWeaponsList();
+        weapons.generateMissingWeaponsList();
+        System.out.println(Arrays.deepToString(weapons.fillMissingWeaponsList()));
+        weapons.showPotentialCriminalWeapon();
         System.out.println("----------------------");
     }
 
