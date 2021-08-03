@@ -41,6 +41,10 @@ public class Main {
         System.out.println( "The sum for both dices is: " + dice.sumForBothDices());
         System.out.println("----------------------");
 
+        for(int i = 0; i < 7; i++) {
+            System.out.println(" ");
+        }
+
         guests.generateGuestsList();
         guests.generateMissingGuestsList();
         System.out.println(Arrays.deepToString(guests.fillMissingGuestsList()));

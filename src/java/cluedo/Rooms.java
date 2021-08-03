@@ -44,19 +44,26 @@ public class Rooms {
         missingRoomsList[5][1] = "Sister";
         missingRoomsList[7][1] = "Found";
 
+
         return missingRoomsList;
     }
 
     public void showPotentialRoom() {
         System.out.println("The potential room where the crime happened is: ");
+
         for (int i = 0; i < ROOMS_LIST_SIZE; i++) {
             if (missingRoomsList[i][1].equals("Found")) {
                 System.out.print(" | " + missingRoomsList[i][0] + " | ");
-                break;
-            } else if  (missingRoomsList[i][1].equals("Missing")) {
+                System.out.println(" ");
+                return;
+            }
+        }
+        for (int i = 0; i < ROOMS_LIST_SIZE; i++) {
+            if (missingRoomsList[i][1].equals("Missing")) {
                 System.out.print(" | " + missingRoomsList[i][0] + " | ");
             }
         }
+
         System.out.println(" ");
     }
 }
