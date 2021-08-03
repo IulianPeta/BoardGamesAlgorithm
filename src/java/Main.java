@@ -26,7 +26,7 @@ public class Main {
         System.out.println("----------------------");
 
         characters.printCharacterList();
-
+        characters.printMissingCharacterList();
     }
 
     public static void main(String[] args) {
