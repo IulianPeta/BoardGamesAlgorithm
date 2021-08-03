@@ -1,12 +1,12 @@
-import cluedo.Characters;
+import cluedo.Guests;
 
 public class Main {
 
     private Dice createDiceObject() {
         return new Dice();
     }
-    private Characters createCharactersObject() {
-        return new Characters();
+    private Guests createGuestsObject() {
+        return new Guests();
     }
 
     public Main(){
@@ -14,7 +14,7 @@ public class Main {
         System.out.println("----------------------");
 
         Dice dice = createDiceObject();
-        Characters characters = createCharactersObject();
+        Guests guests = createGuestsObject();
 
         Dice.firstDiceNumber = dice.rollDice();
         Dice.secondDiceNumber = dice.rollDice();
@@ -25,8 +25,8 @@ public class Main {
         System.out.println( "The sum for both dices is: " + dice.sumForBothDices());
         System.out.println("----------------------");
 
-        characters.printCharacterList();
-        characters.printMissingCharacterList();
+        guests.printGuestsList();
+        guests.printMissingGuestsList();
     }
 
     public static void main(String[] args) {
