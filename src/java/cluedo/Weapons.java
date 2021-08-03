@@ -48,6 +48,15 @@ public class Weapons {
 
     public void showPotentialCriminalWeapon() {
         System.out.println("The potential criminal weapon is: ");
+
+        for (int i = 0; i < WEAPONS_LIST_SIZE; i++) {
+            if (missingWeaponsList[i][1].equals("Found")) {
+                System.out.print(" | " + missingWeaponsList[i][0] + " | ");
+                System.out.println(" ");
+                return;
+            }
+        }
+
         for (int i = 0; i < WEAPONS_LIST_SIZE; i++) {
             if (missingWeaponsList[i][1].equals("Missing")) {
                 System.out.print(" | " + missingWeaponsList[i][0] + " | ");
