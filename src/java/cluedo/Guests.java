@@ -1,12 +1,10 @@
 package cluedo;
 
-import java.util.Arrays;
-
 public class Guests {
 
     private String[] guestsList;
     private String[][] missingGuestsList;
-    private int missingCharacterListSize = 6;
+    private final int CHARACTER_LIST_SIZE = 6;
 
     public String[] generateGuestsList() {
         guestsList = new String[6];
@@ -22,9 +20,9 @@ public class Guests {
     }
 
     public String[][] generateMissingGuestsList() {
-        missingGuestsList = new String[6][2];
+        missingGuestsList = new String[CHARACTER_LIST_SIZE][2];
 
-        for (int i = 0; i < missingCharacterListSize; i++) {
+        for (int i = 0; i < CHARACTER_LIST_SIZE; i++) {
             missingGuestsList[i][0] = guestsList[i];
 
             if (missingGuestsList[i][1] == null) {
@@ -38,19 +36,19 @@ public class Guests {
     public String[][] fillMissingGuestsList() {
 
         missingGuestsList[0][1] = "Mine";
-        missingGuestsList[1][1] = "Cristina";
-        missingGuestsList[5][1] = "Octavia";
+        missingGuestsList[1][1] = "Wife";
+        missingGuestsList[5][1] = "Sister";
 
         return missingGuestsList;
     }
 
     public void showPotentialCriminal() {
         System.out.println("The potential criminal is: ");
-        for (int i = 0; i < missingCharacterListSize; i++) {
-            if (missingGuestsList[i][1] == "Missing") {
+        for (int i = 0; i < CHARACTER_LIST_SIZE; i++) {
+            if (missingGuestsList[i][1].equals("Missing")) {
                 System.out.print(" | " + missingGuestsList[i][0] + " | ");
             }
         }
-        System.out.println("");
+        System.out.println(" ");
     }
 }
