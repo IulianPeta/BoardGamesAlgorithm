@@ -47,7 +47,12 @@ public class Main {
 
         guests.generateGuestsList();
         guests.generateMissingGuestsList();
-        System.out.println(Arrays.deepToString(guests.fillMissingGuestsList()));
+
+        guests.addOwnerToMissingGuestList(0, "Mine");
+        guests.addOwnerToMissingGuestList(1, "Wife");
+        guests.addOwnerToMissingGuestList(4, "Found");
+
+        guests.showMissingGuestList();
         guests.showPotentialCriminal();
         System.out.println("----------------------");
 

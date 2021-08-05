@@ -1,5 +1,7 @@
 package cluedo;
 
+import java.util.Arrays;
+
 public class Guests {
 
     private String[] guestsList;
@@ -45,13 +47,8 @@ public class Guests {
         return missingGuestsList[guestOrder][1];
     }
 
-    public String[][] fillMissingGuestsList() {
-
-        missingGuestsList[0][1] = "Mine";
-        missingGuestsList[1][1] = "Wife ?";
-        missingGuestsList[5][1] = "Sister ?";
-
-        return missingGuestsList;
+    public void showMissingGuestList() {
+        System.out.println(Arrays.deepToString(missingGuestsList));
     }
 
     public void showPotentialCriminal() {

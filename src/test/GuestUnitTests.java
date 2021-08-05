@@ -12,7 +12,7 @@ public class GuestUnitTests {
     @Test
     public void checkThatAddOwner_ToMissingGuestList_Works() {
         final Guests guest = createGuestsObject();
-        String [][] expected = new String[6][2];
+        String[][] expected = new String[6][2];
         String[][] actual = new String[6][2];
 
         guest.generateGuestsList();
