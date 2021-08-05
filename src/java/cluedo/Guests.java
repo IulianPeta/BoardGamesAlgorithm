@@ -33,6 +33,18 @@ public class Guests {
         return missingGuestsList;
     }
 
+    public String[][] addOwnerToMissingGuestList(int guestOrder, String ownerOfGuest) {
+
+        missingGuestsList[guestOrder][1] = ownerOfGuest;
+
+        return missingGuestsList;
+    }
+
+    public String showOwnerFromGuestList(int guestOrder) {
+
+        return missingGuestsList[guestOrder][1];
+    }
+
     public String[][] fillMissingGuestsList() {
 
         missingGuestsList[0][1] = "Mine";
