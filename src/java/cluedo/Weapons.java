@@ -1,5 +1,7 @@
 package cluedo;
 
+import java.util.Arrays;
+
 public class Weapons {
 
     private String[] weaponsList;
@@ -36,14 +38,20 @@ public class Weapons {
         return missingWeaponsList;
     }
 
-    public String[][] fillMissingWeaponsList() {
+    public String getOwnerFromWeaponsList(int guestOrder) {
 
-        missingWeaponsList[0][1] = "Mine";
-        missingWeaponsList[1][1] = "Wife";
-        missingWeaponsList[2][1] = "Mine";
-        missingWeaponsList[5][1] = "Sister";
+        return missingWeaponsList[guestOrder][1];
+    }
+
+    public String[][] addOwnerToMissingWeaponsList(int guestOrder, String ownerOfGuest) {
+
+        missingWeaponsList[guestOrder][1] = ownerOfGuest;
 
         return missingWeaponsList;
+    }
+
+    public void showMissingWeaponsList() {
+        System.out.println(Arrays.deepToString(missingWeaponsList));
     }
 
     public void showPotentialCriminalWeapon() {

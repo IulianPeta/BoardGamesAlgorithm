@@ -59,7 +59,11 @@ public class Main {
         weapons.generateWeaponsList();
         weapons.generateMissingWeaponsList();
 
-        System.out.println(Arrays.deepToString(weapons.fillMissingWeaponsList()));
+        weapons.addOwnerToMissingWeaponsList(0, "Wife");
+        weapons.addOwnerToMissingWeaponsList(5, "Mine");
+        weapons.addOwnerToMissingWeaponsList(3, "Found");
+
+        weapons.showMissingWeaponsList();
         weapons.showPotentialCriminalWeapon();
         System.out.println("----------------------");
 
