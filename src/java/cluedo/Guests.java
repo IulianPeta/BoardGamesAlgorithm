@@ -42,7 +42,7 @@ public class Guests {
         return missingGuestsList;
     }
 
-    public String showOwnerFromGuestList(int guestOrder) {
+    public String getOwnerFromGuestList(int guestOrder) {
 
         return missingGuestsList[guestOrder][1];
     }
