@@ -58,13 +58,18 @@ public class Main {
 
         weapons.generateWeaponsList();
         weapons.generateMissingWeaponsList();
+
         System.out.println(Arrays.deepToString(weapons.fillMissingWeaponsList()));
         weapons.showPotentialCriminalWeapon();
         System.out.println("----------------------");
 
         rooms.generateRoomsList();
         rooms.generateMissingRoomsList();
-        System.out.println(Arrays.deepToString(rooms.fillMissingRoomsList()));
+
+        rooms.addOwnerToMissingRoomsList(0, "Mine");
+        rooms.addOwnerToMissingRoomsList(2, "Wife");
+
+        rooms.showMissingRoomsList();
         rooms.showPotentialRoom();
         System.out.println("----------------------");
     }

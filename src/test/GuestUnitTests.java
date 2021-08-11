@@ -41,6 +41,6 @@ public class GuestUnitTests {
     @Test
     public void checkThatAddOwner_ToMissingGuestList_Works() {
 
-        assertEquals(actualOwnerOfGuests, expectedOwnerOfGuests);
+        assertEquals(expectedOwnerOfGuests, actualOwnerOfGuests);
     }
 }
