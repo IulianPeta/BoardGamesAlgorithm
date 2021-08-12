@@ -1,5 +1,7 @@
 package cluedo;
 
+import java.util.Arrays;
+
 public class Rooms {
 
     private String[] roomsList;
@@ -36,16 +38,20 @@ public class Rooms {
         return missingRoomsList;
     }
 
-    public String[][] fillMissingRoomsList() {
+    public String[][] addOwnerToMissingRoomsList(int guestOrder, String ownerOfGuest) {
 
-        missingRoomsList[0][1] = "Mine";
-        missingRoomsList[1][1] = "Wife";
-        missingRoomsList[2][1] = "Mine";
-        missingRoomsList[5][1] = "Sister";
-        missingRoomsList[7][1] = "Found";
-
+        missingRoomsList[guestOrder][1] = ownerOfGuest;
 
         return missingRoomsList;
+    }
+
+    public String getOwnerFromRoomsList(int guestOrder) {
+
+        return missingRoomsList[guestOrder][1];
+    }
+
+    public void showMissingRoomsList() {
+        System.out.println(Arrays.deepToString(missingRoomsList));
     }
 
     public void showPotentialRoom() {

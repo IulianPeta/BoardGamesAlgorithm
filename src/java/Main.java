@@ -47,19 +47,33 @@ public class Main {
 
         guests.generateGuestsList();
         guests.generateMissingGuestsList();
-        System.out.println(Arrays.deepToString(guests.fillMissingGuestsList()));
+
+        guests.addOwnerToMissingGuestList(0, "Mine");
+        guests.addOwnerToMissingGuestList(1, "Wife");
+        guests.addOwnerToMissingGuestList(4, "Found");
+
+        guests.showMissingGuestList();
         guests.showPotentialCriminal();
         System.out.println("----------------------");
 
         weapons.generateWeaponsList();
         weapons.generateMissingWeaponsList();
-        System.out.println(Arrays.deepToString(weapons.fillMissingWeaponsList()));
+
+        weapons.addOwnerToMissingWeaponsList(0, "Wife");
+        weapons.addOwnerToMissingWeaponsList(5, "Mine");
+        weapons.addOwnerToMissingWeaponsList(3, "Found");
+
+        weapons.showMissingWeaponsList();
         weapons.showPotentialCriminalWeapon();
         System.out.println("----------------------");
 
         rooms.generateRoomsList();
         rooms.generateMissingRoomsList();
-        System.out.println(Arrays.deepToString(rooms.fillMissingRoomsList()));
+
+        rooms.addOwnerToMissingRoomsList(0, "Mine");
+        rooms.addOwnerToMissingRoomsList(2, "Wife");
+
+        rooms.showMissingRoomsList();
         rooms.showPotentialRoom();
         System.out.println("----------------------");
     }
