@@ -1,3 +1,4 @@
+import catan.Player;
 import cluedo.Guests;
 import cluedo.Rooms;
 import cluedo.Weapons;
@@ -16,11 +17,15 @@ public class Main {
     private Rooms createRoomsObject() {
         return new Rooms();
     }
+    private Player createPlayerObject() {
+        return new Player();
+    }
+
 
     public Main(String gameName){
 
         if(gameName.equals("Cluedo")) {
-            System.out.println("Board game: Cluedo");
+            System.out.println("Board game: " + gameName);
             System.out.println("----------------------");
 
             Dice dice = createDiceObject();
@@ -79,11 +84,33 @@ public class Main {
         }
 
         if(gameName.equals("Catan")) {
+            System.out.println("Board game: " + gameName);
+            System.out.println("----------------------");
 
+            Dice dice = createDiceObject();
+            Player player = createPlayerObject();
+
+            Dice.firstDiceNumber = dice.rollDice();
+            Dice.secondDiceNumber = dice.rollDice();
+
+            System.out.println("First dice number: "+ Dice.firstDiceNumber);
+            System.out.println("Second dice number: " + Dice.secondDiceNumber);
+
+            System.out.println( "The sum for both dices is: " + dice.sumForBothDices());
+            System.out.println("----------------------");
+
+            for(int i = 0; i < 7; i++) {
+                System.out.println(" ");
+            }
+
+            player.generatePlayersList();
+            player.addPlayerToColourList(0,"Me");
+            player.addPlayerToColourList(1,"Sister");
+            player.showPlayers();
         }
     }
 
     public static void main(String[] args) {
-        new Main("Cluedo");
+        new Main("Catan");
     }
 }
