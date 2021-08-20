@@ -1,4 +1,5 @@
 import catan.Player;
+import catan.TerrainHexes;
 import cluedo.Guests;
 import cluedo.Rooms;
 import cluedo.Weapons;
@@ -20,6 +21,10 @@ public class Main {
     private Player createPlayerObject() {
         return new Player();
     }
+    private TerrainHexes createTerrainHexesObject() {
+        return new TerrainHexes();
+    }
+
 
 
     public Main(String gameName){
@@ -89,6 +94,7 @@ public class Main {
 
             Dice dice = createDiceObject();
             Player player = createPlayerObject();
+            TerrainHexes terrainHexes = createTerrainHexesObject();
 
             Dice.firstDiceNumber = dice.rollDice();
             Dice.secondDiceNumber = dice.rollDice();
@@ -107,6 +113,11 @@ public class Main {
             player.addPlayerToColourList(0,"Me");
             player.addPlayerToColourList(1,"Sister");
             player.showPlayers();
+            System.out.println("----------------------");
+
+            terrainHexes.generateDiceNumbersList();
+            terrainHexes.showTerrainHexesWithNumbers();
+
         }
     }
 
