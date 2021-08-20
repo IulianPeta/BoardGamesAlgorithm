@@ -2,8 +2,6 @@ import cluedo.Guests;
 import cluedo.Rooms;
 import cluedo.Weapons;
 
-import java.util.Arrays;
-
 public class Main {
 
     private Dice createDiceObject() {
@@ -19,66 +17,73 @@ public class Main {
         return new Rooms();
     }
 
-    public Main(){
-        System.out.println("Board games");
-        System.out.println("----------------------");
+    public Main(String gameName){
 
-        Dice dice = createDiceObject();
-        Guests guests = createGuestsObject();
-        Weapons weapons = createWeaponsObject();
-        Rooms rooms = createRoomsObject();
+        if(gameName.equals("Cluedo")) {
+            System.out.println("Board game: Cluedo");
+            System.out.println("----------------------");
 
-        Dice.firstDiceNumber = dice.rollDice();
-        Dice.secondDiceNumber = dice.rollDice();
+            Dice dice = createDiceObject();
+            Guests guests = createGuestsObject();
+            Weapons weapons = createWeaponsObject();
+            Rooms rooms = createRoomsObject();
 
-        System.out.println("First dice number: "+ Dice.firstDiceNumber);
-        System.out.println("Second dice number: " + Dice.secondDiceNumber);
+            Dice.firstDiceNumber = dice.rollDice();
+            Dice.secondDiceNumber = dice.rollDice();
 
-        if (Dice.secondDiceNumber == 1) {
-            System.out.println("Second dice is |?|");
+            System.out.println("First dice number: "+ Dice.firstDiceNumber);
+            System.out.println("Second dice number: " + Dice.secondDiceNumber);
+
+            if (Dice.secondDiceNumber == 1) {
+                System.out.println("Second dice is |?|");
+            }
+
+            System.out.println( "The sum for both dices is: " + dice.sumForBothDices());
+            System.out.println("----------------------");
+
+            for(int i = 0; i < 7; i++) {
+                System.out.println(" ");
+            }
+
+            guests.generateGuestsList();
+            guests.generateMissingGuestsList();
+
+            guests.addOwnerToMissingGuestList(0, "Mine");
+            guests.addOwnerToMissingGuestList(1, "Wife");
+            guests.addOwnerToMissingGuestList(4, "Found");
+
+            guests.showMissingGuestList();
+            guests.showPotentialCriminal();
+            System.out.println("----------------------");
+
+            weapons.generateWeaponsList();
+            weapons.generateMissingWeaponsList();
+
+            weapons.addOwnerToMissingWeaponsList(0, "Wife");
+            weapons.addOwnerToMissingWeaponsList(5, "Mine");
+            weapons.addOwnerToMissingWeaponsList(3, "Found");
+
+            weapons.showMissingWeaponsList();
+            weapons.showPotentialCriminalWeapon();
+            System.out.println("----------------------");
+
+            rooms.generateRoomsList();
+            rooms.generateMissingRoomsList();
+
+            rooms.addOwnerToMissingRoomsList(0, "Mine");
+            rooms.addOwnerToMissingRoomsList(2, "Wife");
+
+            rooms.showMissingRoomsList();
+            rooms.showPotentialRoom();
+            System.out.println("----------------------");
         }
 
-        System.out.println( "The sum for both dices is: " + dice.sumForBothDices());
-        System.out.println("----------------------");
+        if(gameName.equals("Catan")) {
 
-        for(int i = 0; i < 7; i++) {
-            System.out.println(" ");
         }
-
-        guests.generateGuestsList();
-        guests.generateMissingGuestsList();
-
-        guests.addOwnerToMissingGuestList(0, "Mine");
-        guests.addOwnerToMissingGuestList(1, "Wife");
-        guests.addOwnerToMissingGuestList(4, "Found");
-
-        guests.showMissingGuestList();
-        guests.showPotentialCriminal();
-        System.out.println("----------------------");
-
-        weapons.generateWeaponsList();
-        weapons.generateMissingWeaponsList();
-
-        weapons.addOwnerToMissingWeaponsList(0, "Wife");
-        weapons.addOwnerToMissingWeaponsList(5, "Mine");
-        weapons.addOwnerToMissingWeaponsList(3, "Found");
-
-        weapons.showMissingWeaponsList();
-        weapons.showPotentialCriminalWeapon();
-        System.out.println("----------------------");
-
-        rooms.generateRoomsList();
-        rooms.generateMissingRoomsList();
-
-        rooms.addOwnerToMissingRoomsList(0, "Mine");
-        rooms.addOwnerToMissingRoomsList(2, "Wife");
-
-        rooms.showMissingRoomsList();
-        rooms.showPotentialRoom();
-        System.out.println("----------------------");
     }
 
     public static void main(String[] args) {
-        new Main();
+        new Main("Cluedo");
     }
 }

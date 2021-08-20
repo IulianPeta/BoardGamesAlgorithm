@@ -38,9 +38,9 @@ public class Rooms {
         return missingRoomsList;
     }
 
-    public String[][] addOwnerToMissingRoomsList(int guestOrder, String ownerOfGuest) {
+    public String[][] addOwnerToMissingRoomsList(int roomOrder, String ownerOfGuest) {
 
-        missingRoomsList[guestOrder][1] = ownerOfGuest;
+        missingRoomsList[roomOrder][1] = ownerOfGuest;
 
         return missingRoomsList;
     }
