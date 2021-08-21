@@ -6,7 +6,7 @@ public class TerrainHexes {
     private int[] diceNumberList;
     private final int TERRAIN_HEXES_LIST_SIZE = 19;
 
-    public String[] generateColoursList() {
+    public void generateColoursList() {
         terrainHexesList = new String[TERRAIN_HEXES_LIST_SIZE];
 
         for(int i = 0; i < TERRAIN_HEXES_LIST_SIZE; i++) {
@@ -29,19 +29,14 @@ public class TerrainHexes {
                 terrainHexesList[i] = "Desert (No Resource)";
             }
         }
-
-        return terrainHexesList;
     }
 
-    public int[] generateEmptyDiceNumbersList() {
+    public void generateEmptyDiceNumbersList() {
         diceNumberList = new int[TERRAIN_HEXES_LIST_SIZE];
-
-        return diceNumberList;
     }
 
-    public int assignDiceNumberToTerrainHex(int terrainHexesOrder, int diceNumber) {
-
-        return diceNumberList[terrainHexesOrder] = diceNumber;
+    public void assignDiceNumberToTerrainHex(int terrainHexesOrder, int diceNumber) {
+        diceNumberList[terrainHexesOrder] = diceNumber;
     }
 
     public void showTerrainHexesWithNumbers() {
