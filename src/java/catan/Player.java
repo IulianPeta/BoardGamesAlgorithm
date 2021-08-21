@@ -2,6 +2,11 @@ package catan;
 
 public class Player extends GameObject {
 
+    public final static int BLUE = 0;
+    public final static int WHITE = 1;
+    public final static int RED = 2;
+    public final static int ORANGE = 3;
+
     private String[] coloursList;
     private String[][] playersList;
     private final int PLAYERS_LIST_SIZE = 4;
@@ -23,19 +28,14 @@ public class Player extends GameObject {
 
         for (int i = 0; i < PLAYERS_LIST_SIZE; i++) {
             playersList[i][0] = coloursList[i];
-
-            if (playersList[i][1] == null) {
-                playersList[i][1] = "Missing";
-            }
         }
         return playersList;
     }
 
-    public String[][] addPlayerToColourList(int colourOrder, String ownerOfColour) {
+    public String assignPlayerToColour(int colourOrder, String ownerOfColour) {
 
-        playersList[colourOrder][1] = ownerOfColour;
+        return playersList[colourOrder][1] = ownerOfColour;
 
-        return playersList;
     }
 
     public void showPlayers() {

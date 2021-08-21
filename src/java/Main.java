@@ -110,14 +110,19 @@ public class Main {
             }
 
             player.generatePlayersList();
-            player.addPlayerToColourList(0,"Me");
-            player.addPlayerToColourList(1,"Sister");
+
+            player.assignPlayerToColour(Player.BLUE,"Me");
+            player.assignPlayerToColour(Player.WHITE,"Sister");
+            player.assignPlayerToColour(Player.RED,"Missing");
+            player.assignPlayerToColour(Player.ORANGE,"Missing");
+
             player.showPlayers();
             System.out.println("----------------------");
 
-            terrainHexes.generateDiceNumbersList();
+            terrainHexes.generateColoursList();
+            terrainHexes.generateEmptyDiceNumbersList();
+            terrainHexes.assignDiceNumberToTerrainHex(18,7);
             terrainHexes.showTerrainHexesWithNumbers();
-
         }
     }
 
