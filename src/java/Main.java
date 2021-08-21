@@ -1,3 +1,4 @@
+import catan.Colour;
 import catan.Player;
 import catan.TerrainHexes;
 import cluedo.Guests;
@@ -111,10 +112,10 @@ public class Main {
 
             player.generatePlayersList();
 
-            player.assignPlayerToColour(Player.BLUE,"Me");
-            player.assignPlayerToColour(Player.WHITE,"Sister");
-            player.assignPlayerToColour(Player.RED,"Missing");
-            player.assignPlayerToColour(Player.ORANGE,"Missing");
+            player.assignPlayerToColour(Colour.BLUE,"Me");
+            player.assignPlayerToColour(Colour.WHITE,"Sister");
+            player.assignPlayerToColour(Colour.RED,"Brother");
+            player.assignPlayerToColour(Colour.ORANGE,"Missing");
 
             player.showPlayers();
             System.out.println("----------------------");
