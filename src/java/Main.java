@@ -25,6 +25,7 @@ public class Main {
     private TerrainHexes createTerrainHexesObject() {
         return new TerrainHexes();
     }
+
     private PlayerFactory createPlayerFactoryObject() {
         return new PlayerFactory();
     }
@@ -97,12 +98,13 @@ public class Main {
 
             Dice dice = createDiceObject();
             TerrainHexes terrainHexes = createTerrainHexesObject();
+            PlayerFactory playerFactory = createPlayerFactoryObject();
 
             Dice.firstDiceNumber = dice.rollDice();
             Dice.secondDiceNumber = dice.rollDice();
 
-            System.out.println("First dice number: " + Dice.firstDiceNumber);
-            System.out.println("Second dice number: " + Dice.secondDiceNumber);
+            System.out.println("First dice number is: " + Dice.firstDiceNumber);
+            System.out.println("Second dice number is: " + Dice.secondDiceNumber);
 
             System.out.println("The sum for both dices is: " + dice.sumForBothDices());
             System.out.println("----------------------");
@@ -113,9 +115,7 @@ public class Main {
 
             System.out.println("----------------------");
 
-            PlayerFactory playerFactory = createPlayerFactoryObject();
-
-            playerFactory.getResourcesForEachPlayer();
+            playerFactory.getInformationForEachPlayer();
 
             System.out.println("----------------------");
 

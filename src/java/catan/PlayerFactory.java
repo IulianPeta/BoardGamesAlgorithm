@@ -23,7 +23,7 @@ public class PlayerFactory {
         return player;
     }
 
-    public void getResourcesForEachPlayer() {
+    public void getInformationForEachPlayer() {
         generatePlayers().showPlayers();
 
         System.out.println();
@@ -35,6 +35,7 @@ public class PlayerFactory {
 
         for (PlayerInterface playerResource : playerResources) {
             playerResource.showResources();
+            playerResource.showVictoryPoints();
         }
     }
 }

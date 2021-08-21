@@ -1,8 +1,9 @@
 package catan.polymorphism;
 
 import catan.PlayerResources;
+import catan.VictoryPointsCards;
 
-public class RedPlayer implements PlayerInterface{
+public class RedPlayer implements PlayerInterface {
 
     private final String playerName;
 
@@ -34,5 +35,16 @@ public class RedPlayer implements PlayerInterface{
         System.out.println("Player " + playerName + " has " + generatePlayersResources().getWool() + " wool");
         System.out.println("Player " + playerName + " has " + generatePlayersResources().getGrain() + " grain");
         System.out.println();
+    }
+
+    @Override
+    public void showVictoryPoints() {
+        System.out.println("Player " + playerName + " has " + getSumPoints() + " victory points");
+        System.out.println();
+
+    }
+
+    private int getSumPoints() {
+        return VictoryPointsCards.VILLAGE + VictoryPointsCards.VILLAGE + VictoryPointsCards.VILLAGE;
     }
 }
