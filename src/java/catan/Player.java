@@ -1,6 +1,6 @@
 package catan;
 
-public class Player extends GameObject {
+public class Player {
 
     private String[] coloursList;
     private String[][] playersList;

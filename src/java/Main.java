@@ -1,5 +1,4 @@
-import catan.Colour;
-import catan.Player;
+import catan.PlayerFactory;
 import catan.TerrainHexes;
 import cluedo.Guests;
 import cluedo.Rooms;
@@ -10,27 +9,30 @@ public class Main {
     private Dice createDiceObject() {
         return new Dice();
     }
+
     private Guests createGuestsObject() {
         return new Guests();
     }
+
     private Weapons createWeaponsObject() {
         return new Weapons();
     }
+
     private Rooms createRoomsObject() {
         return new Rooms();
     }
-    private Player createPlayerObject() {
-        return new Player();
-    }
+
     private TerrainHexes createTerrainHexesObject() {
         return new TerrainHexes();
     }
+    private PlayerFactory createPlayerFactoryObject() {
+        return new PlayerFactory();
+    }
 
 
+    public Main(String gameName) {
 
-    public Main(String gameName){
-
-        if(gameName.equals("Cluedo")) {
+        if (gameName.equals("Cluedo")) {
             System.out.println("Board game: " + gameName);
             System.out.println("----------------------");
 
@@ -42,17 +44,17 @@ public class Main {
             Dice.firstDiceNumber = dice.rollDice();
             Dice.secondDiceNumber = dice.rollDice();
 
-            System.out.println("First dice number: "+ Dice.firstDiceNumber);
+            System.out.println("First dice number: " + Dice.firstDiceNumber);
             System.out.println("Second dice number: " + Dice.secondDiceNumber);
 
             if (Dice.secondDiceNumber == 1) {
                 System.out.println("Second dice is |?|");
             }
 
-            System.out.println( "The sum for both dices is: " + dice.sumForBothDices());
+            System.out.println("The sum for both dices is: " + dice.sumForBothDices());
             System.out.println("----------------------");
 
-            for(int i = 0; i < 7; i++) {
+            for (int i = 0; i < 7; i++) {
                 System.out.println(" ");
             }
 
@@ -89,41 +91,43 @@ public class Main {
             System.out.println("----------------------");
         }
 
-        if(gameName.equals("Catan")) {
+        if (gameName.equals("Catan")) {
             System.out.println("Board game: " + gameName);
             System.out.println("----------------------");
 
             Dice dice = createDiceObject();
-            Player player = createPlayerObject();
             TerrainHexes terrainHexes = createTerrainHexesObject();
 
             Dice.firstDiceNumber = dice.rollDice();
             Dice.secondDiceNumber = dice.rollDice();
 
-            System.out.println("First dice number: "+ Dice.firstDiceNumber);
+            System.out.println("First dice number: " + Dice.firstDiceNumber);
             System.out.println("Second dice number: " + Dice.secondDiceNumber);
 
-            System.out.println( "The sum for both dices is: " + dice.sumForBothDices());
+            System.out.println("The sum for both dices is: " + dice.sumForBothDices());
             System.out.println("----------------------");
 
-            for(int i = 0; i < 7; i++) {
+            for (int i = 0; i < 7; i++) {
                 System.out.println(" ");
             }
 
-            player.generatePlayersList();
+            System.out.println("----------------------");
 
-            player.assignPlayerToColour(Colour.BLUE,"Me");
-            player.assignPlayerToColour(Colour.WHITE,"Sister");
-            player.assignPlayerToColour(Colour.RED,"Brother");
-            player.assignPlayerToColour(Colour.ORANGE,"Missing");
+            PlayerFactory playerFactory = createPlayerFactoryObject();
 
-            player.showPlayers();
+            playerFactory.getResourcesForEachPlayer();
+
             System.out.println("----------------------");
 
             terrainHexes.generateColoursList();
             terrainHexes.generateEmptyDiceNumbersList();
-            terrainHexes.assignDiceNumberToTerrainHex(18,7);
+            terrainHexes.assignDiceNumberToTerrainHex(0, 12);
+            terrainHexes.assignDiceNumberToTerrainHex(1, 10);
+            terrainHexes.assignDiceNumberToTerrainHex(2, 10);
+            terrainHexes.assignDiceNumberToTerrainHex(18, 7);
             terrainHexes.showTerrainHexesWithNumbers();
+            System.out.println("----------------------");
+            terrainHexes.showTerrainHexesForDiceNumber(dice.sumForBothDices());
         }
     }
 

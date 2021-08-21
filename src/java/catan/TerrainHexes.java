@@ -52,6 +52,16 @@ public class TerrainHexes {
                 System.out.println(" ");
         }
     }
+
+    public void showTerrainHexesForDiceNumber(int diceNumber) {
+        System.out.println("The terrain hexes with the dice number are: ");
+        for (int i = 0; i < TERRAIN_HEXES_LIST_SIZE; i++) {
+            if(diceNumberList[i] == diceNumber) {
+                System.out.print(" | " + terrainHexesList[i] + " has number "  + diceNumberList[i] + " | ");
+                System.out.println(" ");
+            }
+        }
+    }
 }
 
 
