@@ -6,23 +6,33 @@ import catan.VictoryPointsCards;
 public class WhitePlayer implements PlayerInterface {
 
     private final String playerName;
+    private final int brick;
+    private final int grain;
+    private final int lumber;
+    private final int ore;
+    private final int wool;
 
     private PlayerResources createPlayerResourcesObject() {
         return new PlayerResources();
     }
 
-    public WhitePlayer(String playerName) {
+    public WhitePlayer(String playerName, int brick, int grain, int lumber, int ore, int wool) {
         this.playerName = playerName;
+        this.brick = brick;
+        this.grain = grain;
+        this.lumber = lumber;
+        this.ore = ore;
+        this.wool = wool;
     }
 
     private PlayerResources generatePlayersResources() {
         PlayerResources playerResources = createPlayerResourcesObject();
 
-        playerResources.setBrick(10);
-        playerResources.setGrain(10);
-        playerResources.setLumber(7);
-        playerResources.setOre(4);
-        playerResources.setWool(7);
+        playerResources.setBrick(brick);
+        playerResources.setGrain(grain);
+        playerResources.setLumber(lumber);
+        playerResources.setOre(ore);
+        playerResources.setWool(wool);
 
         return playerResources;
     }

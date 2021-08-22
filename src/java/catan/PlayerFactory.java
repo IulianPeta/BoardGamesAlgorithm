@@ -29,9 +29,9 @@ public class PlayerFactory {
         System.out.println();
 
         PlayerInterface[] playerResources = new PlayerInterface[3];
-        playerResources[0] = new BluePlayer("Me");
-        playerResources[1] = new WhitePlayer("Sister");
-        playerResources[2] = new RedPlayer("Brother");
+        playerResources[0] = new BluePlayer("Me", 3, 4, 0, 5, 7);
+        playerResources[1] = new WhitePlayer("Sister", 10, 10, 4, 7, 7);
+        playerResources[2] = new RedPlayer("Brother", 5, 5, 5, 5, 5);
 
         for (PlayerInterface playerResource : playerResources) {
             playerResource.showResources();
