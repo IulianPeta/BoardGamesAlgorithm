@@ -1,5 +1,5 @@
 import catan.PlayerFactory;
-import catan.TerrainHexes;
+import catan.TerrainHexesFactory;
 import cluedo.Guests;
 import cluedo.Rooms;
 import cluedo.Weapons;
@@ -22,12 +22,12 @@ public class Main {
         return new Rooms();
     }
 
-    private TerrainHexes createTerrainHexesObject() {
-        return new TerrainHexes();
-    }
-
     private PlayerFactory createPlayerFactoryObject() {
         return new PlayerFactory();
+    }
+
+    private TerrainHexesFactory createTerrainHexesFactoryObject() {
+        return new TerrainHexesFactory();
     }
 
 
@@ -97,8 +97,8 @@ public class Main {
             System.out.println("----------------------");
 
             Dice dice = createDiceObject();
-            TerrainHexes terrainHexes = createTerrainHexesObject();
             PlayerFactory playerFactory = createPlayerFactoryObject();
+            TerrainHexesFactory terrainHexesFactory = createTerrainHexesFactoryObject();
 
             Dice.firstDiceNumber = dice.rollDice();
             Dice.secondDiceNumber = dice.rollDice();
@@ -112,22 +112,9 @@ public class Main {
             for (int i = 0; i < 7; i++) {
                 System.out.println(" ");
             }
-
             System.out.println("----------------------");
-
             playerFactory.getInformationForEachPlayer();
-
-            System.out.println("----------------------");
-
-            terrainHexes.generateColoursList();
-            terrainHexes.generateEmptyDiceNumbersList();
-            terrainHexes.assignDiceNumberToTerrainHex(0, 12);
-            terrainHexes.assignDiceNumberToTerrainHex(1, 10);
-            terrainHexes.assignDiceNumberToTerrainHex(2, 10);
-            terrainHexes.assignDiceNumberToTerrainHex(18, 7);
-            terrainHexes.showTerrainHexesWithNumbers();
-            System.out.println("----------------------");
-            terrainHexes.showTerrainHexesForDiceNumber(dice.sumForBothDices());
+            terrainHexesFactory.getInformationForTerrainHexes(dice.sumForBothDices());
         }
     }
 
