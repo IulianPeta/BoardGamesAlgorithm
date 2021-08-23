@@ -43,9 +43,9 @@ public class Weapons {
         return missingWeaponsList[guestOrder][1];
     }
 
-    public String[][] addOwnerToMissingWeaponsList(int guestOrder, String ownerOfGuest) {
+    public String[][] addOwnerToMissingWeaponsList(int weaponOrder, String ownerOfGuest) {
 
-        missingWeaponsList[guestOrder][1] = ownerOfGuest;
+        missingWeaponsList[weaponOrder][1] = ownerOfGuest;
 
         return missingWeaponsList;
     }
