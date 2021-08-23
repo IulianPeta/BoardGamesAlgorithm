@@ -1,18 +1,16 @@
 package catan;
 
-import catan.polymorphism.BluePlayer;
+import catan.polymorphism.PlayerInformation;
 import catan.polymorphism.PlayerInterface;
-import catan.polymorphism.RedPlayer;
-import catan.polymorphism.WhitePlayer;
 
 public class PlayerFactory {
 
-    private Player createPlayerObject() {
-        return new Player();
+    private PlayerColours createPlayerColoursObject() {
+        return new PlayerColours();
     }
 
-    private Player generatePlayers() {
-        Player player = createPlayerObject();
+    private PlayerColours generatePlayers() {
+        PlayerColours player = createPlayerColoursObject();
 
         player.generatePlayersList();
         player.assignPlayerToColour(Colour.BLUE, "Me");
@@ -28,14 +26,14 @@ public class PlayerFactory {
 
         System.out.println();
 
-        PlayerInterface[] playerResources = new PlayerInterface[3];
-        playerResources[0] = new BluePlayer("Me", 3, 4, 0, 5, 7);
-        playerResources[1] = new WhitePlayer("Sister", 10, 10, 4, 7, 7);
-        playerResources[2] = new RedPlayer("Brother", 5, 5, 5, 5, 5);
+        PlayerInterface[] playerInformation = new PlayerInterface[3];
+        playerInformation[0] = new PlayerInformation("Me", 3, 4, 0, 5, 7);
+        playerInformation[1] = new PlayerInformation("Sister", 10, 10, 4, 7, 7);
+        playerInformation[2] = new PlayerInformation("Brother", 5, 5, 5, 5, 5);
 
-        for (PlayerInterface playerResource : playerResources) {
-            playerResource.showResources();
-            playerResource.showVictoryPoints();
+        for (PlayerInterface players : playerInformation) {
+            players.showResources();
+            players.showVictoryPoints();
         }
     }
 }

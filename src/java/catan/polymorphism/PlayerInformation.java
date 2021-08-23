@@ -3,7 +3,7 @@ package catan.polymorphism;
 import catan.PlayerResources;
 import catan.VictoryPointsCards;
 
-public class RedPlayer implements PlayerInterface {
+public class PlayerInformation implements PlayerInterface {
 
     private final String playerName;
     private final int brick;
@@ -16,7 +16,7 @@ public class RedPlayer implements PlayerInterface {
         return new PlayerResources();
     }
 
-    public RedPlayer(String playerName, int brick, int grain, int lumber, int ore, int wool) {
+    public PlayerInformation(String playerName, int brick, int grain, int lumber, int ore, int wool) {
         this.playerName = playerName;
         this.brick = brick;
         this.grain = grain;
@@ -55,6 +55,6 @@ public class RedPlayer implements PlayerInterface {
     }
 
     private int getSumPoints() {
-        return VictoryPointsCards.VILLAGE + VictoryPointsCards.VILLAGE + VictoryPointsCards.VILLAGE;
+        return VictoryPointsCards.VILLAGE + VictoryPointsCards.CITY;
     }
 }

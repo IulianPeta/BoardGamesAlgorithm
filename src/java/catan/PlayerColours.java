@@ -1,6 +1,6 @@
 package catan;
 
-public class Player {
+public class PlayerColours {
 
     private String[] coloursList;
     private String[][] playersList;
