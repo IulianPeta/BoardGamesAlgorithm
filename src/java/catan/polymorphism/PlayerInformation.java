@@ -50,12 +50,16 @@ public class PlayerInformation implements PlayerInterface {
     }
 
     @Override
-    public void showVictoryPoints() {
+    public void showVictoryPoints() throws Exception {
         System.out.println("Player " + playerName + " has " + getVictoryPoints(victoryPoints) + " victory points");
         System.out.println();
     }
 
-    public int getVictoryPoints(int victoryPoints) {
-        return victoryPoints;
+    private int getVictoryPoints(int victoryPoints) throws Exception {
+        if (victoryPoints > 10) {
+            throw new Exception("The player can't have more than 10 points and " + playerName + " has " + victoryPoints);
+        } else{
+            return victoryPoints;
+        }
     }
 }

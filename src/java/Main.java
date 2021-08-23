@@ -31,7 +31,7 @@ public class Main {
     }
 
 
-    public Main(String gameName) {
+    public Main(String gameName) throws Exception {
 
         if (gameName.equals("Cluedo")) {
             System.out.println("Board game: " + gameName);
@@ -118,7 +118,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         new Main("Catan");
     }
 }

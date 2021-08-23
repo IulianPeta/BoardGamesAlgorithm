@@ -21,9 +21,9 @@ public class PlayerFactory {
         return player;
     }
 
-    public void getInformationForEachPlayer() {
+    public void getInformationForEachPlayer() throws Exception {
 
-        int blueVictoryPoints = VictoryPointsCards.VILLAGE + VictoryPointsCards.VILLAGE;
+        int blueVictoryPoints = VictoryPointsCards.VILLAGE + VictoryPointsCards.CITY;
         int whiteVictoryPoints = VictoryPointsCards.VILLAGE + VictoryPointsCards.CITY;
         int redVictoryPoints = VictoryPointsCards.VILLAGE + VictoryPointsCards.VILLAGE + VictoryPointsCards.LIBRARY;
 
