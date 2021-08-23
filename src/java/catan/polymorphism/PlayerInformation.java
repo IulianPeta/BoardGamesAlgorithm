@@ -1,7 +1,6 @@
 package catan.polymorphism;
 
 import catan.PlayerResources;
-import catan.VictoryPointsCards;
 
 public class PlayerInformation implements PlayerInterface {
 
@@ -11,18 +10,21 @@ public class PlayerInformation implements PlayerInterface {
     private final int lumber;
     private final int ore;
     private final int wool;
+    private final int victoryPoints;
+
 
     private PlayerResources createPlayerResourcesObject() {
         return new PlayerResources();
     }
 
-    public PlayerInformation(String playerName, int brick, int grain, int lumber, int ore, int wool) {
+    public PlayerInformation(String playerName, int brick, int grain, int lumber, int ore, int wool, int victoryPoints) {
         this.playerName = playerName;
         this.brick = brick;
         this.grain = grain;
         this.lumber = lumber;
         this.ore = ore;
         this.wool = wool;
+        this.victoryPoints = victoryPoints;
     }
 
     private PlayerResources generatePlayersResources() {
@@ -49,12 +51,11 @@ public class PlayerInformation implements PlayerInterface {
 
     @Override
     public void showVictoryPoints() {
-        System.out.println("Player " + playerName + " has " + getSumPoints() + " victory points");
+        System.out.println("Player " + playerName + " has " + getVictoryPoints(victoryPoints) + " victory points");
         System.out.println();
-
     }
 
-    private int getSumPoints() {
-        return VictoryPointsCards.VILLAGE + VictoryPointsCards.CITY;
+    public int getVictoryPoints(int victoryPoints) {
+        return victoryPoints;
     }
 }
